@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:project_flutter/provinsi.dart';
 
 class CardButton extends StatelessWidget {
   CardButton({
@@ -56,7 +57,9 @@ class CardButton extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // Perform some action
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DataProvinsi.getData(namaProv: title);
+                  }));
                 },
                 child: const Text('Detail'),
               ),
