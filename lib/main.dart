@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project_flutter/data_total.dart';
-// import 'package:project_flutter/detail_provinsi.dart';
-// import 'package:project_flutter/fileClassWidgets/card_button.dart';
-// import 'package:project_flutter/fileClassWidgets/card_nobutton.dart';
 
 void main() {
   runApp(const MyApp());

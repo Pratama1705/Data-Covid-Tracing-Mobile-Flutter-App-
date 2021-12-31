@@ -51,56 +51,64 @@ class _DataTotalState extends State<DataTotal> {
               );
             }
 
-            // if (snapshot.connectionState == ConnectionState.waiting) {
-            //   return const Center(
-            //     child: CircularProgressIndicator(),
-            //   );
-            // }
-
             if (snapshot.connectionState == ConnectionState.done) {
               var result = snapshot.data! as List<dynamic>;
               return Container(
-                margin: const EdgeInsets.all(20),
+                margin: const EdgeInsets.all(0),
                 child: ListView(
                   children: [
                     Column(
                       children: [
                         Container(
-                            margin: const EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(
+                                left: 36, top: 24, right: 36),
                             child: CardNoButton.data(
-                                kode: 1,
-                                title: "DATA COVID SAAT INI",
-                                kasusPositif: result[0][result[0].length - 1]
-                                        ["positif_kumulatif"]
-                                    .toString(),
-                                penambahanKasusPositif: result[0]
-                                        [result[0].length - 1]["positif"]
-                                    .toString(),
-                                totalKesembuhan: result[0][result[0].length - 1]
-                                        ["sembuh_kumulatif"]
-                                    .toString(),
-                                penambahanKesembuhan: result[0]
-                                        [result[0].length - 1]["sembuh"]
-                                    .toString(),
-                                totalKematian: result[0][result[0].length - 1]
-                                        ["meninggal_kumulatif"]
-                                    .toString(),
-                                penambahanKematian:
-                                    result[0][result[0].length - 1]["meninggal"].toString())),
+                              kode: 1,
+                              title: "DATA COVID-19",
+                              kasusPositif: result[0][result[0].length - 1]
+                                      ["positif_kumulatif"]
+                                  .toString(),
+                              penambahanKasusPositif: result[0]
+                                      [result[0].length - 1]["positif"]
+                                  .toString(),
+                              totalKesembuhan: result[0][result[0].length - 1]
+                                      ["sembuh_kumulatif"]
+                                  .toString(),
+                              penambahanKesembuhan: result[0]
+                                      [result[0].length - 1]["sembuh"]
+                                  .toString(),
+                              totalKematian: result[0][result[0].length - 1]
+                                      ["meninggal_kumulatif"]
+                                  .toString(),
+                              penambahanKematian: result[0]
+                                      [result[0].length - 1]["meninggal"]
+                                  .toString(),
+                              tanggal: result[0][result[0].length - 1]
+                                      ["tanggal"]
+                                  .toString(),
+                            )),
                         Container(
-                            margin: const EdgeInsets.only(top: 20),
+                            margin: const EdgeInsets.only(
+                                right: 36, top: 24, left: 36),
                             child: CardNoButton.vaksin(
                                 kode: 2,
                                 title: "DATA VAKSIN SAAT INI",
                                 jumlahVaksinasi:
                                     result[1]["totalsasaran"].toString(),
                                 vaksinasi1: result[1]["vaksinasi1"].toString(),
-                                vaksinasi2:
-                                    result[1]["vaksinasi2"].toString())),
+                                vaksinasi2: result[1]["vaksinasi2"].toString(),
+                                tanggalVak:
+                                    result[1]["lastUpdate"].toString())),
                         Container(
-                          margin: const EdgeInsets.only(top: 50),
+                          margin: const EdgeInsets.only(top: 20, bottom: 15),
                           child: ElevatedButton(
-                            child: const Text("Data Provinsi"),
+                            style: ElevatedButton.styleFrom(
+                              side: const BorderSide(
+                                  width: 1, color: Colors.black),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            child: const Text("DATA PROVINSI"),
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {

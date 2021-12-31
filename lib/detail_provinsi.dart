@@ -74,20 +74,22 @@ class _DataProvinsiState extends State<DataProvinsi> {
             }
 
             var result = (snapshot.data as Map<String, dynamic>)["list_data"];
+            var tanggal = (snapshot.data as Map<String, dynamic>)["last_date"];
             if (controller.text.isEmpty) {
               return ListView.builder(
                 itemCount: result.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: EdgeInsets.all(10),
+                    margin: const EdgeInsets.only(left: 36, top: 24, right: 36),
                     child: CardButton.fillData(
-                        title: result[index]["key"],
-                        jumlahKasus: result[index]["jumlah_kasus"].toString(),
-                        jumlahDirawat:
-                            result[index]["jumlah_dirawat"].toString(),
-                        jumlahSembuh: result[index]["jumlah_sembuh"].toString(),
-                        jumlahMeninggal:
-                            result[index]["jumlah_meninggal"].toString()),
+                      title: result[index]["key"],
+                      jumlahKasus: result[index]["jumlah_kasus"].toString(),
+                      jumlahDirawat: result[index]["jumlah_dirawat"].toString(),
+                      jumlahSembuh: result[index]["jumlah_sembuh"].toString(),
+                      jumlahMeninggal:
+                          result[index]["jumlah_meninggal"].toString(),
+                      tanggal: tanggal,
+                    ),
                   );
                 },
               );
@@ -110,16 +112,17 @@ class _DataProvinsiState extends State<DataProvinsi> {
                 return Container(
                   margin: EdgeInsets.all(10),
                   child: CardButton.fillData(
-                      title: resultSearchData[index]["key"],
-                      jumlahKasus:
-                          resultSearchData[index]["jumlah_kasus"].toString(),
-                      jumlahDirawat:
-                          resultSearchData[index]["jumlah_dirawat"].toString(),
-                      jumlahSembuh:
-                          resultSearchData[index]["jumlah_sembuh"].toString(),
-                      jumlahMeninggal: resultSearchData[index]
-                              ["jumlah_meninggal"]
-                          .toString()),
+                    title: resultSearchData[index]["key"],
+                    jumlahKasus:
+                        resultSearchData[index]["jumlah_kasus"].toString(),
+                    jumlahDirawat:
+                        resultSearchData[index]["jumlah_dirawat"].toString(),
+                    jumlahSembuh:
+                        resultSearchData[index]["jumlah_sembuh"].toString(),
+                    jumlahMeninggal:
+                        resultSearchData[index]["jumlah_meninggal"].toString(),
+                    tanggal: tanggal,
+                  ),
                 );
               },
             );
